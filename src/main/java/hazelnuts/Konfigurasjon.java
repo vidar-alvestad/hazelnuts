@@ -39,7 +39,7 @@ public class Konfigurasjon {
         Config config = new Config();
 
         MapConfig mapConfig = new MapConfig();
-        mapConfig.setName("testMap");
+        mapConfig.setName("saldo_rente_oppgaver");
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setClassName("com.hazelcast.examples.DummyStore").setEnabled(true);

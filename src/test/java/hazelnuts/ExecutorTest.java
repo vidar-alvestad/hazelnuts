@@ -34,15 +34,19 @@ public class ExecutorTest {
         dataPaaLokal(nodeB);
         dataPaaLokal(nodeC);
 
-        System.out.println("medlemmer: " + Hazelcast.getCluster().getMembers());
+        System.out.println("medlemmer: " + nodeA.getCluster().getMembers());
 
         IMap<Integer, String> map = nodeA.getMap("saldo_rente_oppgaver");
-        MultiTask<String> task = new MultiTask<String>(new Kontroll(map), Hazelcast.getCluster().getMembers());
-        ExecutorService executorService = Hazelcast.getExecutorService();
+        MultiTask<String> task = new MultiTask<String>(new Kontroll(map), nodeA.getCluster().getMembers());
+        ExecutorService executorService = nodeA.getExecutorService();
         executorService.execute(task);
         Collection<String> results = task.get();
 
         System.out.println(results);
+
+        // Kan benytte DistributedTask i stedet for MultiTask for å utføre jobb på en gitt node,
+        // den noden som inneholder en gitt nøkkel
+        // eller en tilfeldig node
     }
 
     private void leggSaldoRenteOppgaverPaaGrid(HazelcastInstance node) {

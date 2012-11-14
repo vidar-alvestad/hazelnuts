@@ -20,6 +20,8 @@ public class Intro {
         // kontroll logikk på oppgavene i map
 
         // assert logikk
+
+        Hazelcast.shutdownAll();
     }
 
     @Test

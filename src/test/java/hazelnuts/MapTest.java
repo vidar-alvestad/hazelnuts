@@ -39,13 +39,13 @@ public class MapTest {
     }
 
     private void leggSaldoRenteOppgaverPaaGrid(HazelcastInstance node) {
-        Map<Integer, String> map1 = node.getMap("saldo_rente_oppgaver");
-        map1.put(1, "SR-1");
-        map1.put(2, "SR-2");
-        map1.put(3, "SR-3");
-        map1.put(4, "SR-4");
-        map1.put(5, "SR-5");
-        map1.put(6, "SR-6");
+        Map<Integer, String> map = node.getMap("saldo_rente_oppgaver");
+        map.put(1, "SR-1");
+        map.put(2, "SR-2");
+        map.put(3, "SR-3");
+        map.put(4, "SR-4");
+        map.put(5, "SR-5");
+        map.put(6, "SR-6");
     }
 
     private void dataPaaLokal(HazelcastInstance node) {
@@ -64,6 +64,7 @@ public class MapTest {
         Assert.assertEquals("SR-3", map.get(3));
         Assert.assertEquals("SR-4", map.get(4));
         Assert.assertEquals("SR-5", map.get(5));
+        Assert.assertEquals("SR-6", map.get(6));
     }
 
     @After
